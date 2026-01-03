@@ -11,19 +11,24 @@
 <body>
     <nav class="glass-nav">
         <div class="logo">Escape Plan.</div>
-        <div class="nav-links">
-            <a href="explore.html">Stays</a>
-            <a href="#">Wellness</a>
-            <a href="#">Adventure</a>
+        <div class="nav-menu-container">
+            <div class="nav-links">
+                <a href="explore.html">Stays</a>
+                <a href="#">Wellness</a>
+                <a href="#">Adventure</a>
+            </div>
+            <a href="#" class="btn-primary nav-cta-btn">Sign In</a>
         </div>
-        <a href="#" class="btn-primary">Sign In</a>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="hamburger"></span>
+        </button>
     </nav>
 
     <header class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content fade-in-up">
             <h1>Plan your Escape</h1>
-            <p>Find your perfect glamping spot and reconnect with nature.</p>
+            <p>before the deadline approaches.</p>
             <div class="search-box">
                 <div class="search-item custom-select-wrapper">
                     <label>Lokasi</label>
@@ -58,7 +63,7 @@
                 </div>
                 <div class="search-item">
                     <label>Tanggal</label>
-                    <input id="checkin" type="text" placeholder="Add dates" autocomplete="off" readonly>
+                    <input id="checkin" type="text" placeholder="Add dates" autocomplete="off" readonly class="datepicker-input">
                 </div>
                 <div class="search-item capacity-item">
                     <label>Kapasitas</label>
@@ -184,7 +189,7 @@
                     <li><a href="#">Help Center</a></li>
                     <li><a href="#">Safety Information</a></li>
                     <li><a href="#">Cancellation Options</a></li>
-                    <li><a href="#">COVID-19 Response</a></li>
+                    <li><a href="#">COVID-19 Response</li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">Partnerships</a></li>
                 </ul>

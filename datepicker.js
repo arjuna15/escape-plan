@@ -48,23 +48,24 @@
           <div class="dp-nav-container">
             <button class="dp-nav-btn" data-nav="prev">◀</button>
             <div class="dp-title-container">
-              <span class="dp-title-1"></span>
-              <span class="dp-title-separator">→</span>
-              <span class="dp-title-2"></span>
-            </div>
-            <button class="dp-nav-btn" data-nav="next">▶</button>
-          </div>
-          <div class="dp-mode-toggle">
+                      <div class="dp-mode-toggle">
             <button class="mode-btn active" data-mode="checkin">Check-in</button>
             <button class="mode-btn" data-mode="checkout">Check-out</button>
           </div>
+              <!-- Main title can be simplified or removed, individual titles are now in calendars -->
+            </div>
+            <button class="dp-nav-btn" data-nav="next">▶</button>
+          </div>
+
         </div>
         <div class="dp-calendars">
           <div class="dp-calendar">
+            <div class="dp-title dp-title-1"></div>
             <div class="dp-week"></div>
             <div class="dp-days dp-days-1"></div>
           </div>
           <div class="dp-calendar">
+            <div class="dp-title dp-title-2"></div>
             <div class="dp-week"></div>
             <div class="dp-days dp-days-2"></div>
           </div>
@@ -355,5 +356,7 @@
     }
   }
 
-  const picker = new Datepicker(document.getElementById("checkin"));
+  document.querySelectorAll('.datepicker-input').forEach(input => {
+    new Datepicker(input);
+  });
 })();

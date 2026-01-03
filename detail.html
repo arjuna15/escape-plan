@@ -3,43 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Stay | Bogor Escape</title>
+    <title>Detail Stay | The Forest Haven</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <script src="layout.js" defer></script>
 </head>
 <body>
-    <nav class="solid-nav">
-        <div class="logo"><a href="index.html">Escape Plan.</a></div>
-        <a href="explore.html">Back to results</a>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
-    <div class="hero-gallery fade-in-up">
-        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80" class="main-img">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80">
-        <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80">
+    <!-- Image Carousel -->
+    <div class="carousel-container">
+        <div class="carousel-track-container">
+            <ul class="carousel-track">
+                <li class="carousel-slide current-slide">
+                    <img class="carousel-image" src="images/glamping1.jpg" alt="View from the main bedroom">
+                </li>
+                <li class="carousel-slide">
+                    <img class="carousel-image" src="images/glamping2.jpg" alt="Outdoor jacuzzi">
+                </li>
+                <li class="carousel-slide">
+                    <img class="carousel-image" src="images/glamping3.jpg" alt="Living area">
+                </li>
+                <li class="carousel-slide">
+                    <img class="carousel-image" src="images/glamping4.jpg" alt="Campsite at night">
+                </li>
+            </ul>
+        </div>
+        
+        <button class="carousel-button carousel-button--left is-hidden">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-button carousel-button--right">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="carousel-nav">
+            <button class="carousel-indicator current-slide"></button>
+            <button class="carousel-indicator"></button>
+            <button class="carousel-indicator"></button>
+            <button class="carousel-indicator"></button>
+        </div>
     </div>
 
     <div class="content-wrapper">
-        <div class="details">
-            <h1>The Glass House</h1>
-            <span class="location-tag">📍 Pancawati, Bogor Selatan</span>
+        <!-- Main Details Column -->
+        <main class="details">
+            <h1>The Forest Haven</h1>
+            <div class="location-tag">
+                <i class="fas fa-map-marker-alt"></i> Cisarua, Bogor
+            </div>
+            
+            <div class="rating-large">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="review-count">4.92 (128 reviews)</span>
+            </div>
+
+            <p>
+                Escape to this stunning architectural marvel nestled in the lush forests of Cisarua. The Forest Haven offers a unique blend of luxury and nature, featuring floor-to-ceiling glass walls that bring the outdoors in. Perfect for a romantic getaway or a peaceful solo retreat to reconnect with nature without sacrificing comfort.
+            </p>
+
+            <h2>Amenities</h2>
             <div class="amenities">
-                <span class="badge">Nature View</span>
-                <span class="badge">Hot Tub</span>
-                <span class="badge">Fast WiFi</span>
+                <span class="badge"><i class="fas fa-wifi"></i> High-speed WiFi</span>
+                <span class="badge"><i class="fas fa-hot-tub"></i> Private Jacuzzi</span>
+                <span class="badge"><i class="fas fa-mountain"></i> Mountain View</span>
+                <span class="badge"><i class="fas fa-coffee"></i> Coffee Machine</span>
+                <span class="badge"><i class="fas fa-tv"></i> Smart TV & Netflix</span>
+                <span class="badge"><i class="fas fa-wind"></i> Air Conditioning</span>
             </div>
-            <p>Rasakan sensasi menginap di kabin kaca transparan dengan pemandangan langsung ke Gunung Salak. Sempurna untuk pelarian sejenak dari hiruk pikuk kota.</p>
-        </div>
+        </main>
 
-        <div class="booking-card">
-            <div class="price-display">IDR 1.2jt <small>/night</small></div>
-            <div class="date-picker">
-                <div class="date-row">Check-in: <strong>24 Feb</strong></div>
-                <div class="date-row">Check-out: <strong>26 Feb</strong></div>
+        <!-- Sticky Booking Form Column -->
+        <aside class="booking-card">
+            <div class="price-display">IDR 1.850.000 <small>/night</small></div>
+            
+            <div class="booking-form">
+                <div class="input-group">
+                    <label for="checkin-detail">Dates</label>
+                    <input id="checkin-detail" type="text" placeholder="Select your dates" autocomplete="off" readonly class="datepicker-input">
+                </div>
+                <div class="input-group">
+                    <label>Guests</label>
+                    <div class="guests-selector">
+                        <span>Guests</span>
+                        <div class="guest-control">
+                            <button class="guest-btn minus" aria-label="Kurangi orang">-</button>
+                            <span class="guest-count">2</span>
+                            <button class="guest-btn plus" aria-label="Tambah orang">+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a href="booking.html" class="btn-primary btn-block">Book Now</a>
-        </div>
+
+            <div class="price-calculation">
+                <div class="date-row">
+                    <span>IDR 1.850.000 x 2 nights</span>
+                    <span>IDR 3.700.000</span>
+                </div>
+                <div class="date-row">
+                    <span>Service fee</span>
+                    <span>IDR 150.000</span>
+                </div>
+            </div>
+
+            <div class="total-row">
+                <strong>Total</strong>
+                <strong>IDR 3.850.000</strong>
+            </div>
+
+            <a href="booking.html" class="btn-primary btn-block">Reserve</a>
+        </aside>
     </div>
+    
+    <div id="footer-placeholder"></div>
 
+    <script src="datepicker.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
