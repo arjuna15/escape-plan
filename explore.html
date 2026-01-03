@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Stays | Bogor Escape</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
     <nav class="solid-nav">
@@ -18,31 +19,175 @@
 
     <div class="explore-container">
         <aside class="filters">
-            <div class="filter-group">
-                <h3>Price Range</h3>
-                <label class="checkbox-item"><input type="checkbox"> IDR 500k - 1jt</label>
-                <label class="checkbox-item"><input type="checkbox"> IDR 1jt - 2jt</label>
+            <div class="filter-header">
+                <h2>Filters</h2>
+                <a href="#" class="clear-filters">Clear All</a>
             </div>
             <div class="filter-group">
-                <h3>Experience</h3>
-                <label class="checkbox-item"><input type="checkbox" checked> Glamping</label>
-                <label class="checkbox-item"><input type="checkbox"> Riverside</label>
+                <h3><i class="fas fa-dollar-sign"></i> Price Range</h3>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="price-range">
+                    <span>IDR 500k - 1jt</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="price-range">
+                    <span>IDR 1jt - 2jt</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="price-range">
+                    <span>&gt; IDR 2jt</span>
+                </label>
             </div>
+            <div class="filter-group">
+                <h3><i class="fas fa-leaf"></i> Experience</h3>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="experience" checked>
+                    <span>Glamping</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="experience">
+                    <span>Riverside</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="experience">
+                    <span>Mountain View</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="experience">
+                    <span>Pet Friendly</span>
+                </label>
+            </div>
+             <div class="filter-group">
+                <h3><i class="fas fa-star"></i> Rating</h3>
+                 <label class="checkbox-item">
+                    <input type="radio" name="rating">
+                    <span><i class="fas fa-star"></i> 4.5+</span>
+                </label>
+                 <label class="checkbox-item">
+                    <input type="radio" name="rating">
+                    <span><i class="fas fa-star"></i> 4.0+</span>
+                </label>
+             </div>
         </aside>
 
         <main class="results">
+            <div class="results-header">
+                 <p class="results-count">Showing <strong>6</strong> stays</p>
+                 <div class="sort-options">
+                    <label for="sort">Sort by:</label>
+                    <select name="sort" id="sort">
+                        <option value="featured">Featured</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                 </div>
+            </div>
+
+            <!-- Card 1 -->
             <div class="card" onclick="location.href='detail.html'">
-                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80" alt="Stay">
+                <div class="card-img-wrapper">
+                    <img src="https://source.unsplash.com/random/800x600?glamping,tent&sig=1" alt="The Forest Haven">
+                    <div class="card-badge">FEATURED</div>
+                </div>
                 <div class="card-body">
-                    <h3>The Glass House</h3>
-                    <p>Pancawati, Bogor</p>
+                    <h3>The Forest Haven</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Cisarua, Bogor</p>
                     <div class="price-row">
-                        <span class="price">IDR 1.200.000</span>
-                        <span>★ 4.9</span>
+                        <span class="price">IDR 1.850.000<small>/night</small></span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 4.92
+                        </div>
                     </div>
                 </div>
             </div>
-            </main>
+            <!-- Card 2 -->
+            <div class="card" onclick="location.href='detail.html'">
+                <div class="card-img-wrapper">
+                    <img src="https://source.unsplash.com/random/800x600?glamping,lake&sig=2" alt="Lakeside Serenity">
+                </div>
+                <div class="card-body">
+                    <h3>Lakeside Serenity</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rancabali, Bandung</p>
+                    <div class="price-row">
+                        <span class="price">IDR 2.100.000<small>/night</small></span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 4.95
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card" onclick="location.href='detail.html'">
+                <div class="card-img-wrapper">
+                    <img src="https://source.unsplash.com/random/800x600?cabin,river&sig=3" alt="Riverstone Cabin">
+                    <div class="card-badge new">NEW</div>
+                </div>
+                <div class="card-body">
+                    <h3>Riverstone Cabin</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Pancawati, Bogor</p>
+                    <div class="price-row">
+                        <span class="price">IDR 1.500.000<small>/night</small></span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 4.88
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card" onclick="location.href='detail.html'">
+                <div class="card-img-wrapper">
+                    <img src="https://source.unsplash.com/random/800x600?glamping,mountain&sig=4" alt="Hilltop Dreams">
+                </div>
+                <div class="card-body">
+                    <h3>Hilltop Dreams</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kintamani, Bali</p>
+                    <div class="price-row">
+                        <span class="price">IDR 3.200.000<small>/night</small></span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 4.98
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="card" onclick="location.href='detail.html'">
+                <div class="card-img-wrapper">
+                    <img src="https://source.unsplash.com/random/800x600?jungle,hut&sig=5" alt="Jungle Oasis">
+                </div>
+                <div class="card-body">
+                    <h3>Jungle Oasis</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Sukabumi, Jawa Barat</p>
+                    <div class="price-row">
+                        <span class="price">IDR 1.350.000<small>/night</small></span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 4.85
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="card" onclick="location.href='detail.html'">
+                <div class="card-img-wrapper">
+                    <img src="https://source.unsplash.com/random/800x600?glamping,forest&sig=6" alt="Pine Peak Camp">
+                </div>
+                <div class="card-body">
+                    <h3>Pine Peak Camp</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Lembang, Bandung</p>
+                    <div class="price-row">
+                        <span class="price">IDR 1.650.000<small>/night</small></span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 4.90
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- No Results Message (Hidden by default) -->
+            <div class="no-results-message" style="display: none;">
+                <h3>No Stays Found</h3>
+                <p>Try adjusting your filters or search criteria.</p>
+            </div>
+        </main>
     </div>
 
     <script src="script.js"></script>

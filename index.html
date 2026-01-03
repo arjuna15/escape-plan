@@ -23,11 +23,38 @@
         <div class="hero-bg"></div>
         <div class="hero-content fade-in-up">
             <h1>Plan your Escape</h1>
-            <p>before the deadline approaches you</p>
+            <p>Find your perfect glamping spot and reconnect with nature.</p>
             <div class="search-box">
-                <div class="search-item">
+                <div class="search-item custom-select-wrapper">
                     <label>Lokasi</label>
-                    <input type="text" placeholder="Mau ke mana?" id="locationInput">
+                    <select id="locationSelect" name="location" style="display: none;">
+                        <option value="">mau kemana?</option>
+                        <option value="bogor">Bogor</option>
+                        <option value="bandung">Bandung</option>
+                        <option value="bekasi">Bekasi</option>
+                        <option value="depok">Depok</option>
+                        <option value="jakarta">Jakarta</option>
+                        <option value="tangerang">Tangerang</option>
+                        <option value="sukabumi">Sukabumi</option>
+                        <option value="cianjur">Cianjur</option>
+                    </select>
+                    <div class="custom-select">
+                        <div class="custom-select-trigger">
+                            <span>mau kemana?</span>
+                            <div class="arrow"></div>
+                        </div>
+                        <div class="custom-options">
+                            <div class="custom-option" data-value="">mau kemana?</div>
+                            <div class="custom-option" data-value="bogor">Bogor</div>
+                            <div class="custom-option" data-value="bandung">Bandung</div>
+                            <div class="custom-option" data-value="bekasi">Bekasi</div>
+                            <div class="custom-option" data-value="depok">Depok</div>
+                            <div class="custom-option" data-value="jakarta">Jakarta</div>
+                            <div class="custom-option" data-value="tangerang">Tangerang</div>
+                            <div class="custom-option" data-value="sukabumi">Sukabumi</div>
+                            <div class="custom-option" data-value="cianjur">Cianjur</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="search-item">
                     <label>Tanggal</label>
@@ -72,6 +99,40 @@
             <div class="cat-card">
                 <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80" alt="Wellness">
                 <div class="cat-title">Wellness</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations Section -->
+    <section class="destinations">
+        <div class="section-header">
+            <h2>Featured Destinations</h2>
+            <a href="explore.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="destination-grid">
+            <!-- Destination Card 1 -->
+            <div class="dest-card">
+                <img src="images/glamping1.jpg" alt="Destination 1">
+                <div class="dest-card-content">
+                    <h3 class="dest-title">Rancabali, Bandung</h3>
+                    <p class="dest-desc">Lakeside glamping with stunning sunrise views over the tea plantations.</p>
+                </div>
+            </div>
+            <!-- Destination Card 2 -->
+            <div class="dest-card">
+                <img src="images/glamping2.jpg" alt="Destination 2">
+                <div class="dest-card-content">
+                    <h3 class="dest-title">Cisarua, Bogor</h3>
+                    <p class="dest-desc">Lush mountain retreats perfect for a refreshing weekend getaway.</p>
+                </div>
+            </div>
+            <!-- Destination Card 3 -->
+            <div class="dest-card">
+                <img src="images/glamping3.jpg" alt="Destination 3">
+                <div class="dest-card-content">
+                    <h3 class="dest-title">Kintamani, Bali</h3>
+                    <p class="dest-desc">Experience magical nights with a direct view of Mount Batur.</p>
+                </div>
             </div>
         </div>
     </section>

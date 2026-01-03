@@ -2,6 +2,47 @@
    DUAL MONTH DATEPICKER STYLING
    ========================================= */
 
+   :root {
+    /* Menggunakan warna dari template glamping */
+    --color-primary: #2d4a3e;        /* Deep Forest Green - Glamping Primary */
+    --color-secondary: #c6a87c;      /* Soft Gold/Wood - Glamping Accent */
+    --color-accent: #d4b483;         /* Warmer gold untuk hover */
+    --color-text: #2c3e2d;           /* Dark text color */
+    --color-muted: #7a8c7a;          /* Muted green-gray */
+    --color-light-bg: #fdfbf7;       /* Off-white / Cream background */
+    --color-border: #e9ecef;
+    --color-hover: rgba(214, 188, 140, 0.1); /* Light gold hover */
+    
+    /* Booking status colors */
+    --color-booked: #f8d7da;         /* Soft red for booked */
+    --color-booked-text: #c0392b;    /* Darker red for booked text */
+    
+    
+    /* Datepicker Variables - Updated with glamping theme */
+    --dp-bg: #ffffff;
+    --dp-text: var(--color-text);
+    --dp-muted: var(--color-muted);
+    --dp-border: rgba(214, 188, 140, 0.3); /* Gold tint border */
+    --dp-accent: var(--color-primary);
+    --dp-accent-contrast: #ffffff;
+    --dp-hover: rgba(214, 188, 140, 0.08);
+    --dp-shadow: 0 20px 60px rgba(45, 74, 62, 0.15), 
+                 0 8px 32px rgba(45, 74, 62, 0.1);
+    --radius: 20px;                  /* Consistent with glamping theme */
+    --radius-day: 10px;
+    
+    /* Enhanced design variables */
+    --dp-gradient: linear-gradient(135deg, var(--color-primary) 0%, #3a5c4a 100%);
+    --dp-success: #10b981;
+    --dp-warning: #f59e0b;
+    --dp-high-season: #fbbf24;      /* High season indicator */
+    --dp-weekend: #ef4444;          /* Weekend color */
+    
+    /* Glass effect for luxury feel */
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
 .datepicker {
     position: absolute;
     z-index: 9999;
@@ -263,7 +304,7 @@
 .dp-day.today::after {
     content: 'Today';
     position: absolute;
-    bottom: -2px;
+    bottom: 2px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 7px;

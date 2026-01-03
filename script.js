@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Prepare search data
             const searchData = {
-                location: document.getElementById('locationInput').value.trim(),
+                location: document.getElementById('locationSelect').value.trim(),
                 checkin: document.getElementById('checkin').value.trim(),
                 capacity: capacity
             };
@@ -197,20 +197,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Validate all search inputs
     function validateSearch() {
-        const location = document.getElementById('locationInput').value.trim();
+        const location = document.getElementById('locationSelect').value.trim();
         const checkin = document.getElementById('checkin').value.trim();
         const capacity = parseInt(capacityInput.value);
-        
+        const customSelect = document.querySelector('.custom-select');
+
         let isValid = true;
         
         // Reset all validations
-        document.getElementById('locationInput').classList.remove('invalid');
+        if (customSelect) customSelect.classList.remove('invalid');
         document.getElementById('checkin').classList.remove('invalid');
         capacityControl.classList.remove('invalid');
         
         // Validate location
-        if (!location) {
-            document.getElementById('locationInput').classList.add('invalid');
+        if (!location || location === "") { 
+            if (customSelect) customSelect.classList.add('invalid');
             isValid = false;
         }
         
@@ -373,4 +374,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(toastStyles);
+});
+
+// --- Custom Select Dropdown Logic ---
+document.addEventListener('DOMContentLoaded', function() {
+    const selectWrapper = document.querySelector('.custom-select-wrapper');
+    if (selectWrapper) {
+        const trigger = selectWrapper.querySelector('.custom-select-trigger');
+        const customSelect = selectWrapper.querySelector('.custom-select');
+        const options = selectWrapper.querySelectorAll('.custom-option');
+        const nativeSelect = selectWrapper.querySelector('#locationSelect');
+        const triggerSpan = trigger.querySelector('span');
+
+        // Toggle dropdown
+        trigger.addEventListener('click', () => {
+            customSelect.classList.toggle('open');
+        });
+
+        // Handle option selection
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                if (!customSelect.classList.contains('open')) return;
+
+                // Update native select
+                nativeSelect.value = this.dataset.value;
+                
+                // Update trigger text
+                triggerSpan.textContent = this.textContent;
+
+                // Update selected class
+                options.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+
+                // Close dropdown
+                customSelect.classList.remove('open');
+                
+                // Manually trigger a change event on the native select
+                // in case other scripts are listening to it.
+                nativeSelect.dispatchEvent(new Event('change'));
+            });
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', (e) => {
+            if (!customSelect.contains(e.target)) {
+                customSelect.classList.remove('open');
+            }
+        });
+    }
 });

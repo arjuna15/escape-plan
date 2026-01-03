@@ -8,6 +8,7 @@
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 :root {
     /* Enhanced Color Palette */
     --primary: #1a3b2d;       /* Deeper, richer forest green */
@@ -248,6 +249,11 @@ img {
     z-index: 2;
 }
 
+.card-badge.new {
+    background-color: var(--primary);
+    color: white;
+}
+
 .card-body {
     padding: 24px;
     flex-grow: 1;
@@ -259,6 +265,7 @@ img {
     font-size: 1.4rem;
     margin-bottom: 8px;
     color: var(--primary);
+    font-family: 'Abril Fatface', cursive;
 }
 
 .card p {
@@ -387,7 +394,7 @@ img {
 }
 
 .capacity-label {
-    color: var(--text-muted);
+    color: var(--primary); /* Lighter label color */
     font-size: 0.9rem;
     font-weight: 500;
     margin-left: 5px;
@@ -543,6 +550,15 @@ img {
     100% { background-position: 0% 50%; }
 }
 
+@keyframes kenBurns {
+    0% {
+        transform: scale(1.05) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.15) translate(-2%, 2%);
+    }
+}
+
 .fade-in-up {
     animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
@@ -693,7 +709,8 @@ header.hero {
     background: linear-gradient(rgba(26, 59, 45, 0.3), rgba(26, 59, 45, 0.2)),
                 url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070') no-repeat center/cover;
     z-index: -1;
-    animation: gradientShift 20s ease infinite;
+    animation: kenBurns 25s ease-in-out infinite alternate;
+    transform-origin: center center;
 }
 
 .hero-bg::after {
@@ -738,8 +755,8 @@ header.hero {
 
 /* Advanced Search Widget */
 .search-box {
-    background: var(--glass);
-    backdrop-filter: blur(30px);
+    background: rgba(26, 59, 45, 0.65); /* Darker glass effect */
+    backdrop-filter: blur(20px);
     padding: 15px;
     border-radius: var(--radius-xl);
     display: grid;
@@ -748,7 +765,7 @@ header.hero {
     max-width: 900px;
     margin: 0 auto;
     box-shadow: var(--shadow-hover);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Lighter border */
     animation: float 8s ease-in-out infinite;
 }
 
@@ -764,14 +781,14 @@ header.hero {
     top: 20%;
     height: 60%;
     width: 1px;
-    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent); /* Softer divider */
 }
 
 .search-item label {
     display: block;
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.7); /* Lighter label color */
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
@@ -782,15 +799,115 @@ header.hero {
     border: none;
     background: transparent;
     font-size: 1rem;
-    color: var(--primary);
+    color: var(--primary); /* White input text */
     outline: none;
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
 }
 
 .search-item input::placeholder {
-    color: var(--text-muted);
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.6); /* Lighter placeholder */
+    opacity: 1;
+}
+
+/* Center the search button within its grid cell */
+.search-box .search-item:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Custom Select Dropdown --- */
+.custom-select-wrapper {
+    position: relative;
+}
+
+.custom-select {
+    position: relative;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #ffffff; /* White text */
+}
+
+.custom-select-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 0; /* Align with other inputs */
+    cursor: pointer;
+    width: 100%;
+    height: 24px; /* Match input height */
+}
+
+.custom-select-trigger .arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid rgba(255, 255, 255, 0.7); /* Lighter arrow */
+    transition: transform var(--transition-fast);
+    height: 0;
+    width: 0;
+}
+
+.custom-select.open .arrow {
+    transform: rotate(180deg);
+}
+
+.custom-options {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: -20px; /* Align with search-item padding */
+    right: -20px; /* Align with search-item padding */
+    background: rgba(26, 59, 45, 0.8); /* Dark glass */
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.custom-select.open .custom-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.custom-option {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.8); /* Light text for options */
+}
+
+.custom-option:first-of-type {
+    display: none; /* Hide the placeholder in the options list */
+}
+
+.custom-option:hover {
+    background-color: rgba(212, 180, 131, 0.15); /* Softer accent hover */
+    color: #ffffff;
+}
+
+.custom-option.selected {
+    background-color: var(--accent);
+    color: var(--primary) !important; /* Important to override the default light color */
+    font-weight: 600;
+}
+
+/* Invalid State */
+.custom-select.invalid .custom-select-trigger {
+    border: 1px solid #ef4444;
+    border-radius: var(--radius-sm);
+    padding-left: 10px; /* Add some padding to not overlap with text */
+    padding-right: 10px;
 }
 
 .search-btn {
@@ -921,7 +1038,12 @@ header.hero {
 }
 
 .cat-card:hover::after {
-    background: linear-gradient(to top, rgba(26, 59, 45, 0.8) 0%, transparent 50%);
+    background: linear-gradient(to top, rgba(26, 59, 45, 0.9) 0%, transparent 60%); /* Darker gradient */
+}
+
+.cat-card:hover .cat-title {
+    bottom: 50px; /* Slide title up */
+    transform: scale(1.05);
 }
 
 .cat-title {
@@ -934,6 +1056,7 @@ header.hero {
     z-index: 2;
     font-size: 1.4rem;
     padding: 0 20px;
+    transition: all var(--transition-normal);
 }
 
 .cat-count {
@@ -965,6 +1088,63 @@ header.hero {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
+}
+
+/* =========================================
+   FEATURED DESTINATIONS
+   ========================================= */
+
+.destinations {
+    padding: 100px 5%;
+    background-color: var(--light-gray);
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.dest-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.dest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
+.dest-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.dest-card:hover img {
+    transform: scale(1.05);
+}
+
+.dest-card-content {
+    padding: 25px;
+}
+
+.dest-card .dest-title {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.dest-card .dest-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
 /* Newsletter */
@@ -1069,6 +1249,7 @@ header.hero {
 
 .filter-header h2 {
     font-size: 1.5rem;
+    font-family: 'Abril Fatface', serif;
 }
 
 .clear-filters {
@@ -1096,6 +1277,7 @@ header.hero {
 
 .filter-group h3 {
     font-size: 1rem;
+    font-family: 'Abril Fatface', serif;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -1215,6 +1397,27 @@ header.hero {
 .results .card:nth-child(5) { animation-delay: 0.5s; }
 .results .card:nth-child(6) { animation-delay: 0.6s; }
 
+/* No Results Message */
+.no-results-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 40px;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    margin-top: 20px;
+}
+
+.no-results-message h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.no-results-message p {
+    color: var(--text-muted);
+}
+
 /* =========================================
    7. DETAIL PAGE - ENHANCED
    ========================================= */
@@ -1321,6 +1524,7 @@ header.hero {
     margin-bottom: 15px;
     line-height: 1.1;
     color: var(--primary);
+    font-family: 'Abril Fatface', serif;
 }
 
 .location-tag {
