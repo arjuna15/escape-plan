@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Stays | Bogor Escape</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="solid-nav">
+        <div class="logo"><a href="index.html">Escape Plan.</a></div>
+        <div class="nav-links">
+            <a href="#">Filters</a>
+            <a href="#">Map View</a>
+        </div>
+        <a href="#" class="btn-primary">Login</a>
+    </nav>
+
+    <div class="explore-container">
+        <aside class="filters">
+            <div class="filter-group">
+                <h3>Price Range</h3>
+                <label class="checkbox-item"><input type="checkbox"> IDR 500k - 1jt</label>
+                <label class="checkbox-item"><input type="checkbox"> IDR 1jt - 2jt</label>
+            </div>
+            <div class="filter-group">
+                <h3>Experience</h3>
+                <label class="checkbox-item"><input type="checkbox" checked> Glamping</label>
+                <label class="checkbox-item"><input type="checkbox"> Riverside</label>
+            </div>
+        </aside>
+
+        <main class="results">
+            <div class="card" onclick="location.href='detail.html'">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80" alt="Stay">
+                <div class="card-body">
+                    <h3>The Glass House</h3>
+                    <p>Pancawati, Bogor</p>
+                    <div class="price-row">
+                        <span class="price">IDR 1.200.000</span>
+                        <span>★ 4.9</span>
+                    </div>
+                </div>
+            </div>
+            </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

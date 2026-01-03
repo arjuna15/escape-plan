@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Plan | Nature First OTA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo">Escape Plan.</div>
+        <div class="nav-links">
+            <a href="explore.html">Stays</a>
+            <a href="#">Wellness</a>
+            <a href="#">Adventure</a>
+        </div>
+        <a href="#" class="btn-primary">Sign In</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content fade-in-up">
+            <h1>Plan your Escape</h1>
+            <p>before the deadline approaches you</p>
+            <div class="search-box">
+                <div class="search-item">
+                    <label>Lokasi</label>
+                    <input type="text" placeholder="Mau ke mana?" id="locationInput">
+                </div>
+                <div class="search-item">
+                    <label>Tanggal</label>
+                    <input id="checkin" type="text" placeholder="Add dates" autocomplete="off" readonly>
+                </div>
+                <div class="search-item capacity-item">
+                    <label>Kapasitas</label>
+                    <div class="capacity-control">
+                        <button class="capacity-btn minus" aria-label="Kurangi orang">-</button>
+                        <input type="number" 
+                            class="capacity-input" 
+                            min="1" 
+                            max="20" 
+                            value="2"
+                            aria-label="Jumlah orang">
+                        <button class="capacity-btn plus" aria-label="Tambah orang">+</button>
+                        <span class="capacity-label">Orang</span>
+                    </div>
+                </div>
+                <div class="search-item">
+                    <button class="search-btn" onclick="location.href='explore.html'">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="categories fade-in-up">
+        <div class="section-header">
+            <h2>Recommended Vibe</h2>
+        </div>
+        <div class="cat-scroll">
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80" alt="Glamping">
+                <div class="cat-title">Glamping</div>
+            </div>
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1449156493391-d2cfa28e468b?q=80" alt="Cabin">
+                <div class="cat-title">Cabin</div>
+            </div>
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80" alt="Wellness">
+                <div class="cat-title">Wellness</div>
+            </div>
+        </div>
+    </section>
+
+        <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">Escape Plan.</h3>
+                <p class="footer-description">
+                    Experience the perfect blend of luxury and nature. 
+                    We connect you with the most beautiful glamping destinations 
+                    for your ultimate escape.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Discover</h4>
+                <ul class="footer-links">
+                    <li><a href="explore.html">All Stays</a></li>
+                    <li><a href="#">Glamping</a></li>
+                    <li><a href="#">Cabins</a></li>
+                    <li><a href="#">Treehouses</a></li>
+                    <li><a href="#">Beach Houses</a></li>
+                    <li><a href="#">Mountain Retreats</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Destinations</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Bogor</a></li>
+                    <li><a href="#">Puncak</a></li>
+                    <li><a href="#">Bandung</a></li>
+                    <li><a href="#">Yogyakarta</a></li>
+                    <li><a href="#">Bali</a></li>
+                    <li><a href="#">Lombok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Safety Information</a></li>
+                    <li><a href="#">Cancellation Options</a></li>
+                    <li><a href="#">COVID-19 Response</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Partnerships</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p class="newsletter-text">Get updates on new stays and exclusive offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                © 2026 Escape Plan. All rights reserved.
+            </div>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-amex" title="American Express"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="datepicker.js"></script>
+</body>
+</html>
