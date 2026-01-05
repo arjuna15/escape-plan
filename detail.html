@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
-    <nav class="solid-nav" id="mainNav">
-        <div class="logo"><a href="index.html">Escape Plan.</a></div>
+    <nav id="mainNav">
+        <div class="logo">Escape Plan.</div>
         
         <!-- Desktop Nav -->
-        <div class="nav-cta">
-             <a href="explore.html" class="btn-secondary">Back to Explore</a>
+        <div class="nav-menu">
+            <a href="explore.html" class="active">Stays</a>
+            <a href="#">Experiences</a>
+            <a href="#" class="nav-host-btn">Become a host</a>
+            <button class="profile-btn" aria-label="User menu">
+                <i class="fas fa-user-circle"></i>
+            </button>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -26,15 +31,16 @@
         <!-- Mobile Menu Overlay -->
         <div class="mobile-nav-menu">
             <div class="mobile-nav-links">
-                <a href="index.html">Home</a>
-                <a href="explore.html">Explore</a>
+                <a href="explore.html">Stays</a>
+                <a href="#">Experiences</a>
                 <a href="#">Glamping</a>
                 <a href="#">Cabins</a>
                 <a href="#">Mountain Retreats</a>
                 <a href="#">Help Center</a>
                 <a href="#">Contact Us</a>
+                <a href="#">Become a host</a>
             </div>
-            <a href="explore.html" class="btn-primary">Back to Explore</a>
+            <a href="#" class="btn-primary">Sign In</a>
         </div>
     </nav>
 

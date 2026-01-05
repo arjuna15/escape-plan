@@ -205,16 +205,11 @@ nav {
    align-items: center;
    z-index: 1000;
    transition: background-color var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-   background: transparent;
-   border-bottom: 1px solid transparent;
-}
-
-nav:not(.glass-nav) {
    background: var(--light);
    border-bottom: 1px solid var(--light-gray);
 }
 
-nav.scrolled, nav:not(.glass-nav).scrolled {
+nav.scrolled{
    background: var(--glass);
    backdrop-filter: blur(10px);
    border-bottom: 1px solid var(--light-gray);
@@ -227,23 +222,25 @@ nav.scrolled, nav:not(.glass-nav).scrolled {
    flex-shrink: 0;
 }
 
-.nav-links {
+.nav-menu {
    display: flex;
-   gap: 40px;
+   gap: 20px;
    align-items: center;
-   justify-content: center;
+   justify-content: flex-end;
    flex-grow: 1;
 }
 
-.nav-links a {
+.nav-menu a {
    font-weight: 500;
+   padding: 10px 15px;
+   border-radius: var(--radius-full);
+   transition: background-color var(--transition-fast);
 }
 
-.nav-cta {
-   display: flex;
-   align-items: center;
-   gap: 15px;
-   flex-shrink: 0;
+.nav-menu a:hover,
+.nav-menu a.active {
+   background-color: var(--primary);
+   color: var(--light);
 }
 
 .nav-host-btn {
@@ -251,10 +248,12 @@ nav.scrolled, nav:not(.glass-nav).scrolled {
    padding: 10px 15px;
    border-radius: var(--radius-full);
    font-size: 0.9rem;
+   background-color: var(--primary);
+   color: var(--light);
 }
 
 .nav-host-btn:hover {
-   background: var(--light-gray);
+   background-color: var(--primary-light);
 }
 
 .profile-btn {
