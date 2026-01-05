@@ -3,44 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Booking | Bogor Escape</title>
+    <title>Confirm & Pay | Escape Plan</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <script src="layout.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="booking-body">
-    <div id="navbar-placeholder"></div>
+
     <div class="checkout-container">
+        <!-- Form Section -->
         <div class="form-section">
-            <h2>Payment Details</h2>
-            <div class="input-group">
-                <label>Full Name</label>
-                <input type="text" placeholder="Your name">
+            <a href="detail.html" class="back-link"><i class="fas fa-chevron-left"></i> Back</a>
+            
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step active"><span>Your info</span></div>
+                <div class="step"><span>Payment</span></div>
             </div>
-            <div class="input-group">
-                <label>WhatsApp Number</label>
-                <input type="tel" placeholder="0812...">
-            </div>
+
+            <section id="step-1">
+                <h2>Your Information</h2>
+                <div class="input-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" placeholder="Enter your full name">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number">
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <section id="step-2">
+                <h2>Pay With</h2>
+                <div class="payment-methods">
+                    <div class="payment-method selected">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit Card</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-university"></i>
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fas fa-wallet"></i>
+                        <span>e-Wallet</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="xxxx xxxx xxxx xxxx">
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="expiry-date">Expiry Date</label>
+                        <input type="text" id="expiry-date" placeholder="MM / YY">
+                    </div>
+                    <div class="input-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123">
+                    </div>
+                </div>
+            </section>
+            
             <button class="btn-primary btn-block">Confirm & Pay</button>
-            <a href="detail.html" style="display:block; text-align:center; margin-top:20px; color:#888;">Cancel</a>
         </div>
 
+        <!-- Summary Section -->
         <div class="summary-section">
-            <div class="hotel-preview">
-                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80" alt="Stay">
-                <div>
-                    <strong>The Glass House</strong>
-                    <p style="font-size:0.8rem; opacity:0.7;">2 Nights Stay</p>
+            <div class="summary-card">
+                <div class="hotel-preview">
+                    <img src="images/ASA/asa1.jpeg" alt="The Forest Haven">
+                    <div class="hotel-info">
+                        <p class="stay-type">Glamping Tent</p>
+                        <h3>The Forest Haven</h3>
+                        <div class="rating-small">
+                            <i class="fas fa-star"></i> 4.92 (128 reviews)
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2>Your Trip</h2>
+                <div class="trip-details">
+                    <div>
+                        <strong>Dates</strong>
+                        <p>Jan 15, 2026 - Jan 17, 2026</p>
+                    </div>
+                    <div>
+                        <strong>Guests</strong>
+                        <p>2 guests</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2>Price Details</h2>
+                <div class="price-calculation">
+                    <div class="date-row">
+                        <span>IDR 1.850.000 x 2 nights</span>
+                        <span>IDR 3.700.000</span>
+                    </div>
+                    <div class="date-row">
+                        <span>Service fee</span>
+                        <span>IDR 150.000</span>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="total-row">
+                    <strong>Total <small>(IDR)</small></strong>
+                    <strong>IDR 3.850.000</strong>
                 </div>
             </div>
-            <div class="summary-row"><span>Subtotal</span><span>IDR 2.400.000</span></div>
-            <div class="summary-row"><span>Taxes</span><span>IDR 240.000</span></div>
-            <div class="total-row"><span>Total</span><span>IDR 2.640.000</span></div>
         </div>
     </div>
     
-    <div id="footer-placeholder"></div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">Escape Plan.</h3>
+                <p class="footer-description">
+                    Experience the perfect blend of luxury and nature. 
+                    We connect you with the most beautiful glamping destinations 
+                    for your ultimate escape.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
 
+            <div class="footer-section">
+                <h4>Discover</h4>
+                <ul class="footer-links">
+                    <li><a href="explore.html">All Stays</a></li>
+                    <li><a href="#">Glamping</a></li>
+                    <li><a href="#">Cabins</a></li>
+                    <li><a href="#">Treehouses</a></li>
+                    <li><a href="#">Beach Houses</a></li>
+                    <li><a href="#">Mountain Retreats</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Destinations</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Bogor</a></li>
+                    <li><a href="#">Puncak</a></li>
+                    <li><a href="#">Bandung</a></li>
+                    <li><a href="#">Yogyakarta</a></li>
+                    <li><a href="#">Bali</a></li>
+                    <li><a href="#">Lombok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Safety Information</a></li>
+                    <li><a href="#">Cancellation Options</a></li>
+                    <li><a href="#">COVID-19 Response</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Partnerships</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                © 2026 Escape Plan. All rights reserved.
+            </div>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-amex" title="American Express"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>

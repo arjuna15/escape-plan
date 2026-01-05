@@ -386,6 +386,71 @@ document.addEventListener('DOMContentLoaded', function() {
             mainNav.classList.toggle('menu-open');
         });
     }
+
+    // --- Category Tabs Toggle ---
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    if (categoryTabs.length > 0) {
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+    }
+
+    // --- Wishlist Button Toggle ---
+    const wishlistButtons = document.querySelectorAll('.card-wishlist');
+    if (wishlistButtons.length > 0) {
+        wishlistButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                btn.classList.toggle('active');
+                const icon = btn.querySelector('i');
+                if (btn.classList.contains('active')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                }
+            });
+        });
+    }
+
+    // --- Filters Toggle Logic (for explore.html) ---
+    const filtersToggleBtn = document.querySelector('.filters-toggle-btn');
+    const filtersAside = document.querySelector('.filters');
+    if (filtersToggleBtn && filtersAside) {
+        filtersToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('filters-open');
+        });
+
+        // Close filters when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!filtersAside.contains(e.target) && !filtersToggleBtn.contains(e.target) && document.body.classList.contains('filters-open')) {
+                document.body.classList.remove('filters-open');
+            }
+        });
+    }
+
+    // --- Detail Page Map Logic ---
+    const detailMapContainer = document.getElementById('detail-map');
+    if (detailMapContainer) {
+        // Placeholder coordinates, you can replace these with actual data
+        const lat = -6.6425;
+        const lon = 106.834;
+
+        const map = L.map('detail-map').setView([lat, lon], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([lat, lon]).addTo(map)
+            .bindPopup('The approximate location of The Forest Haven.')
+            .openPopup();
+    }
 });
 
 
@@ -395,22 +460,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Efek Navbar Saat Scroll
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (nav) {
-        if (window.scrollY > 50) {
-            nav.classList.add('solid-nav');
-            // Cek apakah di halaman utama untuk menghapus class glass-nav
-            if(document.title.includes("Nature First")) {
-                nav.classList.remove('glass-nav');
-            }
-            nav.style.padding = "10px 5%";
-        } else {
-            // Hanya berlaku di halaman utama
-            if(document.title.includes("Nature First")) {
-                nav.classList.add('glass-nav');
-                nav.classList.remove('solid-nav');
-                nav.style.padding = "15px 5%";
-            }
-        }
+    const nav = document.getElementById('mainNav');
+    if (!nav) return;
+
+    if (window.scrollY > 30) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
     }
 });

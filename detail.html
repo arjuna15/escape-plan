@@ -6,124 +6,251 @@
     <title>Detail Stay | The Forest Haven</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="datepicker.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <script src="layout.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
-
-    <!-- Image Carousel -->
-    <div class="carousel-container">
-        <div class="carousel-track-container">
-            <ul class="carousel-track">
-                <li class="carousel-slide current-slide">
-                    <img class="carousel-image" src="images/glamping1.jpg" alt="View from the main bedroom">
-                </li>
-                <li class="carousel-slide">
-                    <img class="carousel-image" src="images/glamping2.jpg" alt="Outdoor jacuzzi">
-                </li>
-                <li class="carousel-slide">
-                    <img class="carousel-image" src="images/glamping3.jpg" alt="Living area">
-                </li>
-                <li class="carousel-slide">
-                    <img class="carousel-image" src="images/glamping4.jpg" alt="Campsite at night">
-                </li>
-            </ul>
-        </div>
+    <nav class="solid-nav" id="mainNav">
+        <div class="logo"><a href="index.html">Escape Plan.</a></div>
         
-        <button class="carousel-button carousel-button--left is-hidden">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-button carousel-button--right">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-
-        <div class="carousel-nav">
-            <button class="carousel-indicator current-slide"></button>
-            <button class="carousel-indicator"></button>
-            <button class="carousel-indicator"></button>
-            <button class="carousel-indicator"></button>
+        <!-- Desktop Nav -->
+        <div class="nav-cta">
+             <a href="explore.html" class="btn-secondary">Back to Explore</a>
         </div>
-    </div>
 
-    <div class="content-wrapper">
-        <!-- Main Details Column -->
-        <main class="details">
+        <!-- Mobile Menu Button -->
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="hamburger"></span>
+        </button>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-nav-menu">
+            <div class="mobile-nav-links">
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="#">Glamping</a>
+                <a href="#">Cabins</a>
+                <a href="#">Mountain Retreats</a>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <a href="explore.html" class="btn-primary">Back to Explore</a>
+        </div>
+    </nav>
+
+    <main class="detail-page-main">
+        <div class="detail-header">
             <h1>The Forest Haven</h1>
-            <div class="location-tag">
-                <i class="fas fa-map-marker-alt"></i> Cisarua, Bogor
-            </div>
-            
-            <div class="rating-large">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+            <div class="detail-header-meta">
+                <div class="rating-large">
+                    <i class="fas fa-star"></i> 4.92 (128 reviews)
                 </div>
-                <span class="review-count">4.92 (128 reviews)</span>
-            </div>
-
-            <p>
-                Escape to this stunning architectural marvel nestled in the lush forests of Cisarua. The Forest Haven offers a unique blend of luxury and nature, featuring floor-to-ceiling glass walls that bring the outdoors in. Perfect for a romantic getaway or a peaceful solo retreat to reconnect with nature without sacrificing comfort.
-            </p>
-
-            <h2>Amenities</h2>
-            <div class="amenities">
-                <span class="badge"><i class="fas fa-wifi"></i> High-speed WiFi</span>
-                <span class="badge"><i class="fas fa-hot-tub"></i> Private Jacuzzi</span>
-                <span class="badge"><i class="fas fa-mountain"></i> Mountain View</span>
-                <span class="badge"><i class="fas fa-coffee"></i> Coffee Machine</span>
-                <span class="badge"><i class="fas fa-tv"></i> Smart TV & Netflix</span>
-                <span class="badge"><i class="fas fa-wind"></i> Air Conditioning</span>
-            </div>
-        </main>
-
-        <!-- Sticky Booking Form Column -->
-        <aside class="booking-card">
-            <div class="price-display">IDR 1.850.000 <small>/night</small></div>
-            
-            <div class="booking-form">
-                <div class="input-group">
-                    <label for="checkin-detail">Dates</label>
-                    <input id="checkin-detail" type="text" placeholder="Select your dates" autocomplete="off" readonly class="datepicker-input">
+                <div class="separator">·</div>
+                <div class="location-tag">
+                    <i class="fas fa-map-marker-alt"></i> Cisarua, Bogor
                 </div>
-                <div class="input-group">
-                    <label>Guests</label>
-                    <div class="guests-selector">
-                        <span>Guests</span>
-                        <div class="guest-control">
-                            <button class="guest-btn minus" aria-label="Kurangi orang">-</button>
-                            <span class="guest-count">2</span>
-                            <button class="guest-btn plus" aria-label="Tambah orang">+</button>
+            </div>
+        </div>
+
+        <!-- Airbnb-style Photo Grid -->
+        <div class="photo-grid">
+            <div class="photo-main">
+                <img src="images/ASA/asa1.jpeg" alt="Main view of The Forest Haven">
+            </div>
+            <div class="photo-sub">
+                <img src="images/DC/dc_1.jpeg" alt="Outdoor jacuzzi">
+                <img src="images/DIRGO/dirgo_1.jpeg" alt="Living area">
+                <img src="images/G.SKY/g_sky_1.jpeg" alt="Campsite at night">
+                <img src="images/G.T/g_t_1.jpeg" alt="Entrance">
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Main Details Column -->
+            <div class="details">
+                <div class="host-info">
+                    <div class="host-text">
+                        <h2>Hosted by Hesti</h2>
+                        <p>Superhost · 3 years hosting</p>
+                    </div>
+                    <img src="https://source.unsplash.com/random/100x100?woman,portrait" alt="Host Hesti" class="host-avatar">
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="description-section">
+                    <p>
+                        Escape to this stunning architectural marvel nestled in the lush forests of Cisarua. The Forest Haven offers a unique blend of luxury and nature, featuring floor-to-ceiling glass walls that bring the outdoors in. Perfect for a romantic getaway or a peaceful solo retreat to reconnect with nature without sacrificing comfort.
+                    </p>
+                </div>
+
+                <hr class="section-divider">
+
+                <h2>Amenities</h2>
+                <div class="amenities-grid">
+                    <span class="badge"><i class="fas fa-wifi"></i> High-speed WiFi</span>
+                    <span class="badge"><i class="fas fa-hot-tub"></i> Private Jacuzzi</span>
+                    <span class="badge"><i class="fas fa-mountain"></i> Mountain View</span>
+                    <span class="badge"><i class="fas fa-coffee"></i> Coffee Machine</span>
+                    <span class="badge"><i class="fas fa-tv"></i> Smart TV & Netflix</span>
+                    <span class="badge"><i class="fas fa-wind"></i> Air Conditioning</span>
+                </div>
+            </div>
+
+            <!-- Sticky Booking Form Column -->
+            <aside class="booking-card">
+                 <div class="price-display">IDR 1.850.000 <small>/night</small></div>
+            
+                <div class="booking-form">
+                    <div class="input-group">
+                        <label for="checkin-detail">Dates</label>
+                        <input id="checkin-detail" type="text" placeholder="Select your dates" autocomplete="off" readonly class="datepicker-input">
+                    </div>
+                    <div class="input-group">
+                        <label>Guests</label>
+                        <div class="guests-selector">
+                            <span>Guests</span>
+                            <div class="guest-control">
+                                <button class="guest-btn minus" aria-label="Kurangi orang">-</button>
+                                <span class="guest-count">2</span>
+                                <button class="guest-btn plus" aria-label="Tambah orang">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="price-calculation">
-                <div class="date-row">
-                    <span>IDR 1.850.000 x 2 nights</span>
-                    <span>IDR 3.700.000</span>
+                <div class="price-calculation">
+                    <div class="date-row">
+                        <span>IDR 1.850.000 x 2 nights</span>
+                        <span>IDR 3.700.000</span>
+                    </div>
+                    <div class="date-row">
+                        <span>Service fee</span>
+                        <span>IDR 150.000</span>
+                    </div>
                 </div>
-                <div class="date-row">
-                    <span>Service fee</span>
-                    <span>IDR 150.000</span>
+
+                <div class="total-row">
+                    <strong>Total</strong>
+                    <strong>IDR 3.850.000</strong>
+                </div>
+
+                <a href="booking.html" class="btn-primary btn-block">Reserve</a>
+            </aside>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Reviews Section -->
+        <section class="reviews">
+            <h2><i class="fas fa-star"></i> 4.92 · 128 Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://source.unsplash.com/random/60x60?man,face" alt="Reviewer">
+                        <div class="review-info">
+                            <h3>Budi</h3>
+                            <p>January 2026</p>
+                        </div>
+                    </div>
+                    <p>Tempatnya luar biasa! Pemandangannya indah, fasilitasnya lengkap. Benar-benar bisa 'escape' dari hiruk pikuk kota. Sangat direkomendasikan.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://source.unsplash.com/random/60x60?woman,face,happy" alt="Reviewer">
+                        <div class="review-info">
+                            <h3>Siti</h3>
+                            <p>December 2025</p>
+                        </div>
+                    </div>
+                    <p>A magical place. Waking up to the mountain view was surreal. The jacuzzi is a huge plus. Will definitely come back again for a longer stay.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="total-row">
-                <strong>Total</strong>
-                <strong>IDR 3.850.000</strong>
-            </div>
+        <hr class="section-divider">
 
-            <a href="booking.html" class="btn-primary btn-block">Reserve</a>
-        </aside>
-    </div>
+        <!-- Map Section -->
+        <section class="location-map">
+            <h2>Where you'll be</h2>
+            <div id="detail-map"></div>
+        </section>
+    </main>
     
-    <div id="footer-placeholder"></div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">Escape Plan.</h3>
+                <p class="footer-description">
+                    Experience the perfect blend of luxury and nature. 
+                    We connect you with the most beautiful glamping destinations 
+                    for your ultimate escape.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
 
+            <div class="footer-section">
+                <h4>Discover</h4>
+                <ul class="footer-links">
+                    <li><a href="explore.html">All Stays</a></li>
+                    <li><a href="#">Glamping</a></li>
+                    <li><a href="#">Cabins</a></li>
+                    <li><a href="#">Treehouses</a></li>
+                    <li><a href="#">Beach Houses</a></li>
+                    <li><a href="#">Mountain Retreats</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Destinations</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Bogor</a></li>
+                    <li><a href="#">Puncak</a></li>
+                    <li><a href="#">Bandung</a></li>
+                    <li><a href="#">Yogyakarta</a></li>
+                    <li><a href="#">Bali</a></li>
+                    <li><a href="#">Lombok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Safety Information</a></li>
+                    <li><a href="#">Cancellation Options</a></li>
+                    <li><a href="#">COVID-19 Response</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Partnerships</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                © 2026 Escape Plan. All rights reserved.
+            </div>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-amex" title="American Express"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="datepicker.js"></script>
     <script src="script.js"></script>
 </body>

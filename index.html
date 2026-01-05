@@ -6,143 +6,379 @@
     <title>Escape Plan | Nature First OTA</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="datepicker.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <nav class="glass-nav">
+<body class="index-page">
+    <nav class="glass-nav" id="mainNav">
         <div class="logo">Escape Plan.</div>
-        <div class="nav-menu-container">
-            <div class="nav-links">
-                <a href="explore.html">Stays</a>
-                <a href="#">Wellness</a>
-                <a href="#">Adventure</a>
-            </div>
-            <a href="#" class="btn-primary nav-cta-btn">Sign In</a>
+        
+        <!-- Desktop Nav -->
+        <div class="nav-links">
+            <a href="explore.html" class="active">Stays</a>
+            <a href="#">Experiences</a>
         </div>
+        <div class="nav-cta">
+            <a href="#" class="nav-host-btn">Become a host</a>
+            <button class="profile-btn" aria-label="User menu">
+                <i class="fas fa-user-circle"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
         <button class="menu-toggle" aria-label="Toggle menu">
             <span class="hamburger"></span>
         </button>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-nav-menu">
+            <div class="mobile-nav-links">
+                <a href="explore.html">Stays</a>
+                <a href="#">Experiences</a>
+                <a href="#">Glamping</a>
+                <a href="#">Cabins</a>
+                <a href="#">Mountain Retreats</a>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Become a host</a>
+            </div>
+            <a href="#" class="btn-primary">Sign In</a>
+        </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content fade-in-up">
+    <header class="home-header">
+        <div class="header-content">
             <h1>Plan your Escape</h1>
-            <p>before the deadline approaches.</p>
-            <div class="search-box">
-                <div class="search-item custom-select-wrapper">
-                    <label>Lokasi</label>
-                    <select id="locationSelect" name="location" style="display: none;">
-                        <option value="">mau kemana?</option>
-                        <option value="bogor">Bogor</option>
-                        <option value="bandung">Bandung</option>
-                        <option value="bekasi">Bekasi</option>
-                        <option value="depok">Depok</option>
-                        <option value="jakarta">Jakarta</option>
-                        <option value="tangerang">Tangerang</option>
-                        <option value="sukabumi">Sukabumi</option>
-                        <option value="cianjur">Cianjur</option>
-                    </select>
-                    <div class="custom-select">
-                        <div class="custom-select-trigger">
-                            <span>mau kemana?</span>
-                            <div class="arrow"></div>
-                        </div>
-                        <div class="custom-options">
-                            <div class="custom-option" data-value="">mau kemana?</div>
-                            <div class="custom-option" data-value="bogor">Bogor</div>
-                            <div class="custom-option" data-value="bandung">Bandung</div>
-                            <div class="custom-option" data-value="bekasi">Bekasi</div>
-                            <div class="custom-option" data-value="depok">Depok</div>
-                            <div class="custom-option" data-value="jakarta">Jakarta</div>
-                            <div class="custom-option" data-value="tangerang">Tangerang</div>
-                            <div class="custom-option" data-value="sukabumi">Sukabumi</div>
-                            <div class="custom-option" data-value="cianjur">Cianjur</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="search-item">
-                    <label>Tanggal</label>
-                    <input id="checkin" type="text" placeholder="Add dates" autocomplete="off" readonly class="datepicker-input">
-                </div>
-                <div class="search-item capacity-item">
-                    <label>Kapasitas</label>
-                    <div class="capacity-control">
-                        <button class="capacity-btn minus" aria-label="Kurangi orang">-</button>
-                        <input type="number" 
-                            class="capacity-input" 
-                            min="1" 
-                            max="20" 
-                            value="2"
-                            aria-label="Jumlah orang">
-                        <button class="capacity-btn plus" aria-label="Tambah orang">+</button>
-                        <span class="capacity-label">Orang</span>
-                    </div>
-                </div>
-                <div class="search-item">
-                    <button class="search-btn" onclick="location.href='explore.html'">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
+            <p>Before Deadline approach you.</p>
         </div>
     </header>
 
-    <section class="categories fade-in-up">
-        <div class="section-header">
-            <h2>Recommended Vibe</h2>
-        </div>
-        <div class="cat-scroll">
-            <div class="cat-card">
-                <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80" alt="Glamping">
-                <div class="cat-title">Glamping</div>
+    <main class="main-content">
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-form">
+                    <div class="form-group">
+                        <label for="location">Where</label>
+                        <input type="text" id="location" placeholder="Search destinations">
+                    </div>
+                    <div class="form-group form-group-dates">
+                        <div class="date-input">
+                            <label for="checkin">Check in</label>
+                            <input type="text" id="checkin" placeholder="Add dates" class="datepicker-input">
+                        </div>
+                        <div class="date-input">
+                            <label for="checkout">Check out</label>
+                            <input type="text" id="checkout" placeholder="Add dates" class="datepicker-input">
+                        </div>
+                    </div>
+                    <div class="form-group form-group-guests">
+                        <label for="guests">Who</label>
+                        <input type="text" id="guests" placeholder="Add guests">
+                    </div>
+                    <button class="search-button" onclick="location.href='explore.html'">
+                        <i class="fas fa-search"></i>
+                        <span>Search</span>
+                    </button>
+                </div>
             </div>
-            <div class="cat-card">
-                <img src="https://images.unsplash.com/photo-1449156493391-d2cfa28e468b?q=80" alt="Cabin">
-                <div class="cat-title">Cabin</div>
-            </div>
-            <div class="cat-card">
-                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80" alt="Wellness">
-                <div class="cat-title">Wellness</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Featured Destinations Section -->
-    <section class="destinations">
-        <div class="section-header">
-            <h2>Featured Destinations</h2>
-            <a href="explore.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="destination-grid">
-            <!-- Destination Card 1 -->
-            <div class="dest-card">
-                <img src="images/glamping1.jpg" alt="Destination 1">
-                <div class="dest-card-content">
-                    <h3 class="dest-title">Rancabali, Bandung</h3>
-                    <p class="dest-desc">Lakeside glamping with stunning sunrise views over the tea plantations.</p>
+        <!-- Category Tabs -->
+        <section class="category-section">
+            <div class="category-tabs">
+                <div class="category-tab active">
+                    <i class="fas fa-campground"></i>
+                    <span>Glamping</span>
+                </div>
+                <div class="category-tab">
+                    <i class="fas fa-home"></i>
+                    <span>Cabins</span>
+                </div>
+                <div class="category-tab">
+                    <i class="fas fa-tree"></i>
+                    <span>Treehouse</span>
+                </div>
+                <div class="category-tab">
+                    <i class="fas fa-mountain"></i>
+                    <span>Mountain</span>
+                </div>
+                <div class="category-tab">
+                    <i class="fas fa-water"></i>
+                    <span>Lakeside</span>
+                </div>
+                <div class="category-tab">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>Beach</span>
                 </div>
             </div>
-            <!-- Destination Card 2 -->
-            <div class="dest-card">
-                <img src="images/glamping2.jpg" alt="Destination 2">
-                <div class="dest-card-content">
-                    <h3 class="dest-title">Cisarua, Bogor</h3>
-                    <p class="dest-desc">Lush mountain retreats perfect for a refreshing weekend getaway.</p>
-                </div>
-            </div>
-            <!-- Destination Card 3 -->
-            <div class="dest-card">
-                <img src="images/glamping3.jpg" alt="Destination 3">
-                <div class="dest-card-content">
-                    <h3 class="dest-title">Kintamani, Bali</h3>
-                    <p class="dest-desc">Experience magical nights with a direct view of Mount Batur.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-        <footer class="footer">
+        <section class="glamping-catalog">
+            <div class="section-header">
+                <h2>Popular Right Now</h2>
+                <a href="explore.html" class="view-all-link">View all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-container">
+                <!-- Card 1 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/ASA/asa1.jpeg" alt="Rancabali, Bandung">
+                        <div class="card-badge new">NEW</div>
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Rancabali, Bandung</h3>
+                        <p>Lakeside glamping with stunning sunrise views.</p>
+                        <div class="price-row">
+                            <div class="price">Rp1.200.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.92</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/DC/dc_1.jpeg" alt="Cisarua, Bogor">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Cisarua, Bogor</h3>
+                        <p>Lush mountain retreats for a refreshing getaway.</p>
+                        <div class="price-row">
+                            <div class="price">Rp950.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.88</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/DIRGO/dirgo_1.jpeg" alt="Kintamani, Bali">
+                        <div class="card-badge popular">TOP RATED</div>
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Kintamani, Bali</h3>
+                        <p>Magical nights with a direct view of Mount Batur.</p>
+                        <div class="price-row">
+                            <div class="price">Rp1.500.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.95</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/G.SKY/g_sky_1.jpeg" alt="Ciwidey, Bandung">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Ciwidey, Bandung</h3>
+                        <p>Family-friendly glamping with strawberry fields nearby.</p>
+                        <div class="price-row">
+                            <div class="price">Rp1.100.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.85</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/G.T/g_t_1.jpeg" alt="Puncak, Bogor">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Puncak, Bogor</h3>
+                        <p>A classic mountain escape with modern comforts.</p>
+                        <div class="price-row">
+                            <div class="price">Rp850.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.80</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 6 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/HABYB/habyb1.jpeg" alt="Lembang, Bandung">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Lembang, Bandung</h3>
+                        <p>Cool pine forest atmosphere with unique tent designs.</p>
+                        <div class="price-row">
+                            <div class="price">Rp1.350.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.90</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 7 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/NIDA/nida_1.jpeg" alt="Rancabali, Bandung">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Rancabali, Bandung</h3>
+                        <p>Lakeside glamping with stunning sunrise views.</p>
+                        <div class="price-row">
+                            <div class="price">Rp1.200.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.92</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 8 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/PR/pr_1.jpeg" alt="Cisarua, Bogor">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Cisarua, Bogor</h3>
+                        <p>Lush mountain retreats for a refreshing getaway.</p>
+                        <div class="price-row">
+                            <div class="price">Rp950.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.88</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Unique Stays</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Happy Guests</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Destinations</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="features-header">
+                <h2>Why Choose Escape Plan?</h2>
+                <p>We make finding your perfect nature getaway simple, safe, and memorable.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Verified Properties</h3>
+                    <p>Every property is personally verified by our team to ensure quality and safety standards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Best Price Guarantee</h3>
+                    <p>Find a lower price? We'll match it and give you an extra 10% off your booking.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is always here to help you before, during, and after your stay.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Stays Section -->
+        <section class="glamping-catalog">
+            <div class="section-header">
+                <h2>Explore More Stays</h2>
+                <a href="explore.html" class="view-all-link">View all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-container">
+                <!-- Card 9 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/VERMILLION/vermillion1.JPG" alt="Kintamani, Bali">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Kintamani, Bali</h3>
+                        <p>Magical nights with a direct view of Mount Batur.</p>
+                        <div class="price-row">
+                            <div class="price">Rp1.500.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.95</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 10 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/ASA/asa2.jpeg" alt="Ciwidey, Bandung">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Ciwidey, Bandung</h3>
+                        <p>Family-friendly glamping with strawberry fields nearby.</p>
+                        <div class="price-row">
+                            <div class="price">Rp1.100.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.85</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 11 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/DC/dc_2.jpeg" alt="Puncak, Bogor">
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Puncak, Bogor</h3>
+                        <p>A classic mountain escape with modern comforts.</p>
+                        <div class="price-row">
+                            <div class="price">Rp850.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.80</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 12 -->
+                <a href="detail.html" class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/DIRGO/dirgo_2.jpeg" alt="Lembang, Bandung">
+                        <div class="card-badge new">NEW</div>
+                        <button class="card-wishlist" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <h3>Lembang, Bandung</h3>
+                        <p>Cool pine forest atmosphere with unique tent designs.</p>
+                        <div class="price-row">
+                            <div class="price">Rp1.350.000 <small>/ night</small></div>
+                            <div class="rating"><i class="fas fa-star"></i> 4.90</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3 class="footer-logo">Escape Plan.</h3>
@@ -189,25 +425,16 @@
                     <li><a href="#">Help Center</a></li>
                     <li><a href="#">Safety Information</a></li>
                     <li><a href="#">Cancellation Options</a></li>
-                    <li><a href="#">COVID-19 Response</li>
+                    <li><a href="#">COVID-19 Response</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">Partnerships</a></li>
                 </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p class="newsletter-text">Get updates on new stays and exclusive offers.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn-primary">Subscribe</button>
-                </form>
             </div>
         </div>
 
         <div class="footer-bottom">
             <div class="copyright">
-                © 2026 Escape Plan. All rights reserved.
+                &copy; 2026 Escape Plan. All rights reserved.
             </div>
             <div class="legal-links">
                 <a href="#">Privacy Policy</a>
